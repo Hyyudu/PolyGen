@@ -1,0 +1,18 @@
+.wrapper	{
+	width: 297mm;
+}
+
+.character	{
+	background-image: url(../images/arch.jpg);
+	float: left;
+	padding: 5mm;
+	border: 1px solid black;
+}
+.name	{
+	width: 100%; 
+	text-align: center;
+	font-size: 16mm;
+}	
+.abilities_title	{
+	font-weight: bold;
+}

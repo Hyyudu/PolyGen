@@ -1,0 +1,16 @@
+﻿	<div class="loc_rule a4_hor">
+		<div class=all_content>
+				{if:item['tradition_text']!=''}<div class=loc_rule_caption >ВЛАСТЬ ТРАДИЦИЙ</div>
+				<div class="tradition_text hyphens" style='font-family: "{font_family}"; font-size: {font_size}mm; line-height: {line_height}em;'>{tradition_text}</div>
+				{endif}
+				{if:item['location_rule']!=''}
+				<!--div class=loc_rule_subcaption style='font-family: "{font_family}";'>Особое правило</div-->
+				<div class="tradition_text hyphens" style='font-family: "{font_family}"; font-size: {font_size}mm; line-height: {line_height}em;'>{location_rule}</div>
+				{endif}
+				{if:item['ability_text']!=''}
+				<div class=ability_caption style='font-family: "Marta Decor Two"; font-size: 30mm;'>Сертификат</div>
+				<div class="tradition_text hyphens" style='font-family: "{font_family}"; font-size: {font_size}mm; line-height: {line_height}em;'>{ability_text}</div>
+				{endif}
+		</div>
+		<div class=deny_remark>{deny_remark}</div>
+	</div>

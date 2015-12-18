@@ -1,0 +1,7 @@
+print;role_id;character_name;contact_address;contact_name;courier_id;location;phase;crates;price1;price2;text
+1;21;Bartholomew Weaver;mt. Pleasant-Drive, Brooksby farm;Peter Kitton;3;pier;2;2;150;200;Привет, Питти!<br>Мне нужно, чтобы ты доставил чутка груза до Салема!
+1;33;Iason Geld;Forster-road, Manchester-by-the-Sea;Stephanie Cunning;4;oldroad;2;5;150;500;Хай, Стефани!<br>Устроишь доброску до Салема пары ящиков добра?
+1;45;Bonnie Tyler;Windsor-road, Beverly;Chasey o'Neil;5;ravine;1;3;200;300;Здорово, Чейси!<br>Буду очень рада, если увижу в ближайшее время возле Салема твой грузовичок с несколькими ящиками добра!
+1;54;Ashlyn Birne;Summer street, Lynnfield;Stephan Hornbie;6;ravine;2;5;150;500;Будь здоров, старичок!<br>Возьми у своего па его старенький фургончик да подкинь несколько ящиков добра в Салем!
+1;64;Marco Janniny;Cherry street, Wenham;Cate Winslow;7;oldroad;1;4;200;400;Привет, подружка!<br>Не хочешь поразмяться, перевезти немного барахлишка в Салем? С меня причитается!
+1;83;Yuna Stillwater;Blaney street, Swampscott;Tekoda Mountain;8;pier;1;6;200;600;Привет! Твое судно сегодня причалит в Салеме. А не захватишь ли для меня немного добра?

@@ -1,0 +1,7 @@
+print;role_id;character_name;contact_address;contact_name;store_id;trucks;price;text
+1;15;{quot}Cocky Joe Carservice{quot} acting Chief;Lafayette-place, Salem;Terence Fawcett;1;3;50;Хай, Терри!<br> На сегодня намечается работенка — сажай Сэма, Джо и Хьюго за баранки!
+1;26;{quot}Salem Laundry{quot} acting Chief;Glendale street, Salem;James Rourke;2;4;50;Здорово, Джимми!<br>Сегодня надо развести немного бельишка и еще кое-что.
+1;37;{quot}Salem Catholic Church{quot} acting Chief;Rainbow Terrace, Salem;Steven Halloway;3;5;50;Здравствуй, Стив!<br>Сегодня предстоит перевезти некоторое количество утвари и еще кое-что. 
+1;48;{quot}Sullivan's Speakeasy{quot} Managing director;Cherry Hill avenue, Salem;Timothy Seaworth;4;5;50;Доброго дня, Тимми!<br>Сажай своих ребяток за баранки, на сегодня у них будет работенка.
+1;59;Chief Medical Officer;West Circle, Salem;Hugh Tense;5;6;50;Мистер Тенс, объявите, пожалуйста, нашим водителям, что сегодня они должны поработать сверхурочно. Само собой, за установленную оплату.
+1;60;Acting City Treasurer;Looney avenue, Salem;Barry Warthog;6;6;50;Здравствуйте, мистер Уордог!<br>Мне нужно, чтобы несколько грузовиков съездили кое-куда с нашими грузами.

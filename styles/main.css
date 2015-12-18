@@ -1,0 +1,135 @@
+*	{
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: playbill;
+	src: local("PlayBill.ttf") format('true-type');
+	
+}
+
+@font-face {
+	font-family: futurak;
+	src: local("FuturaBlack BT") format('true-type');
+}
+
+@font-face {
+	font-family: telegram;
+	src: url("../fonts/consola.TTF");
+}
+
+@font-face {
+  font-family: 'PT Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/PT_Mono.woff) format('woff');
+}
+
+@font-face {
+	font-family: b52;
+}
+
+@font-face {
+	font-family: 'Marta Decor Two';
+	src: local("Marta Decor Two.ttf") format('true-type');
+}
+
+@font-face {
+	font-family: 'Segoe Print';
+	src: local("segoepr.ttf") format ('true-type');
+}
+
+@font-face {
+    font-family: 'Naulilus';
+    src: local("Naulilus Pompilius Regular.otf") format('open-type');
+}
+
+div	{
+	page-break-inside: avoid;
+}
+
+.wrapper	{
+	page-break-after: always;
+	width: 149mm;
+}
+
+.a4_vert	{
+	width: 210mm;
+	height: 297mm;
+}
+
+.a4_hor	{
+	width: 297mm;
+	height: 210mm;
+}
+
+.a5_vert	{
+	width: 148mm;
+	height: 210mm;
+}
+
+.a5_hor	{
+	width: 210mm;
+	height: 148mm;
+}
+
+.a6_vert	{
+	width: 105mm;
+	height: 148mm;
+}
+
+.a6_hor	{
+	width: 148mm;
+	height: 105mm;
+}
+
+.a7_vert	{
+	width: 74mm;
+	height: 105mm;
+}
+
+.a7_hor	{
+	width: 105mm;
+	height: 74mm;
+}
+
+.a8_hor	{
+	height: 52mm;
+	width: 74mm;
+}
+
+.a8_vert	{
+	height: 74mm;
+	width: 52mm;
+}
+
+.prot_medium_vert	{
+	width: 66mm;
+	height: 93mm;
+}
+
+.prot_medium_hor	{
+	width: 93mm;
+	height: 66mm;
+}
+
+.prot_small_vert {
+    width: 42.0mm;
+    height: 64.0mm;
+}
+
+.prot_small_hor {
+    height: 42.0mm;
+    width: 64.0mm;
+}
+
+.hyphens	{
+	hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+}
+
+.clear	{
+	clear: both;
+}
