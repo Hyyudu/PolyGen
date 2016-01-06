@@ -268,13 +268,20 @@ def replace_right_end(text, item, options={}):
 		text = text.replace(arr[0], end)
 	return text
 
+# Заменяет в тексте конструкцию типа {hit}на значение $dict['hit']
+def replace_by_dict(text, dict):
+	for k, v in dict.items():
+		text = text.replace('{'+k+'}',str(v))
+	return text
+
 # Заменяет конструкцию вида {d~player_names:name} на dicts.player_names[item['name']]
 def replace_dict_entries(text, item):
 	if text== '':
 		return ''
 	p = re.findall('(\{d~(.*?):(.*?)\})', text)
 	for arr in p:
-		text = text.replace(arr[0], dicts.__dict__[arr[1]].get(item[arr[2]]))
+		key = item.get[arr[2]] if item.get(arr[2]) != None else arr[2]
+		text = text.replace(arr[0], dicts.__dict__[arr[1]].get(key))
 	return text
 
 # Заменяет конструкцию вида {if:item['profit']>0}Прибыль{else}Убыток{endif}

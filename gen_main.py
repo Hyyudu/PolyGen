@@ -71,23 +71,16 @@ def generate():
 				else:
 					text = ''
 
-				item,text = in_project.process_item_text(procedure_key, item, text, aux_data)
-				for k, v in replacements.rep.items():
-					text = text.replace('{'+k+'}',v)
-				text = replace_str_repeat(text, item)
-
-				for field in item:
-					text = text.replace('{'+field+'}', str(item[field]))
-				text = replace_template_conditions(text, item)
-				text = replace_dict_entries(text, item)
-
 				text = main_stub.replace('{main_part}', text)
 				# Начиная отсюда  замены идут для всех, а не только для внутренних подтипов
 
+				item,text = in_project.process_item_text(procedure_key, item, text, aux_data)
 				# Основной цикл замен
 				while (True):
 					old_text = text[:]
+					tmp,text = in_project.process_item_text(procedure_key, item, text, aux_data)
 					text = replace_template_conditions(text, item)
+					text = replace_dict_entries(text, item)
 					text = replace_by_dict(text, item)
 					text = replace_by_dict(text, replacements.rep)
 					text = replace_right_end(text, item)
