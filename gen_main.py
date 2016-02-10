@@ -2,12 +2,13 @@
 
 from tools import *
 from gen_config import config
-import replacements, in_project
+import replacements, in_project, math
 
 def generate():
 
 	# Дополнительные данные, нужные для генерации (другие файлы и т.д.) - определяются в in_project.py
 	aux_data = {}
+	total_cards_count = {}
 
 	for config_key, config_item in config.items():
 		if config_item.get('pass', False):
@@ -100,6 +101,15 @@ def generate():
 						cnt+=1
 						if cnt%config_item['items_per_page']==0:
 							output+="</div>\n<div class=wrapper>\n\n"
+					total_cards_count.setdefault(config_item['items_per_page'],0)
+					total_cards_count[config_item['items_per_page']] += item['print']
 			print(config_key+" generated")
 		output += open('templates/output_end.htm').read()
 		open(output_filename, 'w', encoding='utf-8').write(output)
+
+		qty_text = ""
+		for ipp, qty in total_cards_count.items():
+			qty_text+=str(ipp)+" items per page: "+str(qty)+" cards ("+str(math.ceil(qty/ipp))+" pages total)\n"
+		f=open("pages_count.txt", "w")
+		f.write(qty_text)
+		f.close()
