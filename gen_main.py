@@ -32,8 +32,10 @@ def generate():
 		else:	# Вообще свой output_start, маргиналы чертовы!
 			output = open('templates/'+output_start).read()
 
+		template_file = config_item.get('template_file', config_key+'.main.htm')
+			
 		try:
-			main_stub = open('templates/'+config_key+'.main.htm', 'r', encoding='utf-8').read()
+			main_stub = open('templates/'+template_file, 'r', encoding='utf-8').read()
 		except:
 			print(config_key)
 			raise
@@ -76,9 +78,10 @@ def generate():
 
 				item,text = in_project.process_item_text(procedure_key, item, text, aux_data)
 				# Основной цикл замен
+				tmp,text = in_project.process_item_text(procedure_key, item, text, aux_data)
 				while (True):
 					old_text = text[:]
-					tmp,text = in_project.process_item_text(procedure_key, item, text, aux_data)
+					
 					text = replace_template_conditions(text, item)
 					text = replace_dict_entries(text, item)
 					text = replace_by_dict(text, item)
