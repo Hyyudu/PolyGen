@@ -105,6 +105,10 @@ def generate():
 					total_cards_count[config_item['items_per_page']] += item['print']
 			print(config_key+" generated")
 		output += open('templates/output_end.htm').read()
+		
+		config_item.setdefault('wrapper_class', 'a4_vert')
+		output = output_replace('{wrapper_class}', config_item['wrapper_class'])
+		
 		open(output_filename, 'w', encoding='utf-8').write(output)
 
 		qty_text = ""
