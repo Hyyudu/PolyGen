@@ -64,6 +64,8 @@ def generate():
 				# print "Error parsing "+procedure_key;
 				# exit();
 			for item in gamedata:
+				
+			
 				if item.setdefault('print',1) == 0:
 					continue
 
@@ -96,18 +98,21 @@ def generate():
 
 				if item['print']:
 					for i in range(item['print']):
+						last_item = item == gamedata[-1] and i == item['print'] - 1;
 						text1 = text
 						output += text1
 						cnt+=1
-						if cnt%config_item['items_per_page']==0:
-							output+="</div>\n<div class=wrapper>\n\n"
+						if cnt%config_item['items_per_page']==0 or last_item:
+							output+="</div>\n"
+							if not last_item:
+								output +="<div class='wrapper {wrapper_class}'>\n\n"
 					total_cards_count.setdefault(config_item['items_per_page'],0)
 					total_cards_count[config_item['items_per_page']] += item['print']
 			print(config_key+" generated")
 		output += open('templates/output_end.htm').read()
 		
 		config_item.setdefault('wrapper_class', 'a4_vert')
-		output = output_replace('{wrapper_class}', config_item['wrapper_class'])
+		output = output.replace('{wrapper_class}', config_item['wrapper_class'])
 		
 		open(output_filename, 'w', encoding='utf-8').write(output)
 
