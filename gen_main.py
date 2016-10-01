@@ -64,39 +64,38 @@ def generate():
 				# print "Error parsing "+procedure_key;
 				# exit();
 			for item in gamedata:
-				
-			
-				if item.setdefault('print',1) == 0:
-					continue
-
-				if datatype:
-					if not (procedure_key in templates):
-						templates[procedure_key] = open('templates/'+procedure_key+'.htm', encoding='utf-8').read()
-					text = templates[procedure_key]
-				else:
-					text = ''
-
-				text = main_stub.replace('{main_part}', text)
-				# Начиная отсюда  замены идут для всех, а не только для внутренних подтипов
-
-				item,text = in_project.process_item_text(procedure_key, item, text, aux_data)
-				# Основной цикл замен
-				tmp,text = in_project.process_item_text(procedure_key, item, text, aux_data)
-				while (True):
-					old_text = text[:]
-					
-					text = replace_template_conditions(text, item)
-					text = replace_dict_entries(text, item)
-					text = replace_by_dict(text, item)
-					text = replace_by_dict(text, replacements.rep)
-					text = replace_right_end(text, item)
-					text = replace_str_repeat(text, item)
-					if (old_text == text):
-						break
-
-
-
 				if item['print']:
+					if item.setdefault('print',1) == 0:
+						continue
+
+					if datatype:
+						if not (procedure_key in templates):
+							templates[procedure_key] = open('templates/'+procedure_key+'.htm', encoding='utf-8').read()
+						text = templates[procedure_key]
+					else:
+						text = ''
+
+					text = main_stub.replace('{main_part}', text)
+					# Начиная отсюда  замены идут для всех, а не только для внутренних подтипов
+
+					item,text = in_project.process_item_text(procedure_key, item, text, aux_data)
+					# Основной цикл замен
+					tmp,text = in_project.process_item_text(procedure_key, item, text, aux_data)
+					while (True):
+						old_text = text[:]
+						
+						text = replace_template_conditions(text, item)
+						text = replace_dict_entries(text, item)
+						text = replace_by_dict(text, item)
+						text = replace_by_dict(text, replacements.rep)
+						text = replace_right_end(text, item)
+						text = replace_str_repeat(text, item)
+						if (old_text == text):
+							break
+
+
+
+				
 					for i in range(item['print']):
 						last_item = item == gamedata[-1] and i == item['print'] - 1;
 						text1 = text

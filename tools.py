@@ -274,7 +274,8 @@ def replace_by_dict(text, dict):
 		text = text.replace('{'+k+'}',str(v))
 	return text
 
-# Заменяет конструкцию вида {d~player_names:name} на dicts.player_names[item['name']]
+# Заменяет конструкцию вида {d~player_names:name} на dicts.player_names[item['name']],
+# или dicts.player_names['name'], если в item нет поля name
 def replace_dict_entries(text, item):
 	if text== '':
 		return ''
@@ -320,6 +321,6 @@ def replace_str_repeat(text,item):
 			new_text = arr[0]*value
 			text = text.replace(p.group(), new_text)
 		except:
-			raise Exception("Error in str_repeat template: "+p.group())
+			raise Exception("Error in str_repeat template: "+p.group()+print_r(item, True))
 		# return 
 	return text
