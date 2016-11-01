@@ -214,7 +214,11 @@ def googlesheet_data(url, assoc = ''):
 		}
 		r = requests.post('https://accounts.google.com/o/oauth2/token', data = data)
 
-		credentials.access_token = eval(r.text)['access_token']
+		try:
+			credentials.access_token = eval(r.text)['access_token']
+		except:
+			print("Error while authorizing via OAuth: "+r.text)
+			exit();
 		gc = gspread.authorize(credentials)
 		try:
 			sh = gc.open_by_url(url)
