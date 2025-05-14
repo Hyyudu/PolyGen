@@ -121,3 +121,7 @@ def generate():
 		f=open("pages_count.txt", "w")
 		f.write(qty_text)
 		f.close()
+
+
+if __name__ == '__main__':
+	generate()

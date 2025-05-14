@@ -1,20 +1,7 @@
 config = {
-	'telegram': {
-		'items_per_page': 4,
-		'types' : [
-			'courier',
-			'delivery',
-		]
+	'father': {
+		'items_per_page': 1,
+		'googlesheet_url': '1M-mcJTR0QU4wIp52_bPmiNWdTk1aqUc6aaVLJnhh4Qo',
 	},
-	'order':	{
-		'items_per_page': 4,
-		'css': ['telegram']
-	},
-	'character': {
-		'items_per_page': 8
-	},
-	'loc_rule':	{
-		'items_per_page': 1
-	}
 }
 

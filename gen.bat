@@ -1,2 +1,2 @@
-gen.py
+gen_main.py
 pause
