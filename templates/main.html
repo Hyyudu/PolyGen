@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="../styles/main.css">
+	{% for css in css_files %}
+	<link rel="stylesheet" type="text/css" href="../styles/{{css}}">
+	{% endfor %}
+</head>
+<body>
+	{% for chunk in chunks %}
+	<div class="wrapper {{wrapper_class}}">
+		{{ "\n".join(chunk) }}
+	</div>
+	{% endfor %}
+</body>
+</html>

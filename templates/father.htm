@@ -1,0 +1,28 @@
+{% from 'wife.htm' import wife_html %}
+	<div class="father a4_hor" style="background-image: url(../images/{{photo}}); background-position: {{position}}; background-size: {{size}}">
+		<div class=back>
+			<div class=points>{{points}}</div>
+			<div class=name>{{name}}</div>
+			<div class=description>
+				<h2>Краткое описание</h2>
+				{{description}}
+				<h2>Способность — {{ability}}</h2>
+				{{ability_description}}
+			</div>
+		</div>
+	</div>
+	<div class="wives">
+		{% for i in range(1, 5) %}
+			{% if i <= wifes_count %}
+				{% set wifenum = 'wife'+i|string %}
+				{% if entity.get(wifenum) %}
+					{% set wife = mother.get(entity[wifenum]) %}
+					{{ wife_html(wife) }}
+				{% else %}
+					<div class="wife wife_free"></div>
+				{% endif %}
+			{% else %}
+				<div class="wife wife_empty"></div>
+			{% endif %}
+		{% endfor %}
+	</div>

@@ -164,6 +164,7 @@ def data2arr(data, assoc):
 
 def parse_csv(filename, assoc=''):
     data = []
+    print('Getting data from '+filename)
     with open(filename) as text:
         reader = csv.reader(text, delimiter=';', quotechar='"')
         for r in reader:
@@ -171,7 +172,17 @@ def parse_csv(filename, assoc=''):
     return data2arr(data, assoc)
 
 
-def googlesheet_data(url, assoc=''):
+def process_csv_value(value: str) -> str | int | float:
+    if not value.isnumeric():
+        return value
+    result = float(value)
+    if not result % 1:
+        result = int(result)
+    return result
+
+
+def googlesheet_data(*, sheet_id: str, page: str | None = None):
+    page = page or 'Лист1'
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
     from google_auth_oauthlib.flow import InstalledAppFlow
@@ -201,10 +212,10 @@ def googlesheet_data(url, assoc=''):
 
         # Call the Sheets API
         sh = service.spreadsheets()
-        print(f'Accessing google sheet at {url}')
+        print(f'Accessing google sheet at {sheet_id}!{page}')
         result = (
             sh.values()
-            .get(spreadsheetId=url, range='Лист1')
+            .get(spreadsheetId=sheet_id, range=page)
             .execute()
         )
         values = result.get("values", [])
@@ -214,7 +225,7 @@ def googlesheet_data(url, assoc=''):
             return
 
         data = [
-            dict(zip(values[0], row))
+            dict(zip(values[0], [process_csv_value(val) for val in row]))
             for row in values[1:]
         ]
         for item in data:
@@ -257,24 +268,6 @@ def replace_dict_entries(text, item):
         text = text.replace(arr[0], dicts.__dict__[arr[1]].get(key))
     return text
 
-
-# Заменяет конструкцию вида {if:item['profit']>0}Прибыль{else}Убыток{endif}
-def replace_template_conditions(text, item):
-    if text == '':
-        return ''
-    while 1:
-        p = re.search(r"{if(.*?):(.*?)}(.*?){endif\1}", text, re.DOTALL + re.UNICODE)
-        # print p
-        if not p:
-            break
-        arr = p.groups()
-        # print_r(p.groups())
-        check = eval(arr[1])
-        out = arr[2].split('{else' + arr[0] + '}')
-        new_text = out[0] if check else out[1] if len(out) > 1 else ''
-        text = text.replace(p.group(), new_text)
-    # return
-    return text
 
 
 # Заменяет конструкцию вида {blabla**item['count']}
